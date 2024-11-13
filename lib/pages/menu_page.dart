@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inspiraapp/pages/login_page.dart';
 import 'package:inspiraapp/pages/registration_page,.dart';
 
 class MenuPage extends StatelessWidget {
@@ -86,7 +87,7 @@ void navigateToPage(BuildContext context, Widget page) {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Lógica para sair
+                    navigateToPage(context,LoginPage());
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
