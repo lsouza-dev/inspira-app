@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:inspiraapp/pages/login_page.dart';
 import 'package:inspiraapp/pages/registration_page,.dart';
+import 'package:inspiraapp/service/custom_popup.dart';
+import 'package:inspiraapp/service/navigation_service.dart';
 
 class MenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-void navigateToPage(BuildContext context, Widget page) { 
-  Navigator.push( context, MaterialPageRoute(builder: (context) => page),);
-  }
 
     return Scaffold(
       appBar: AppBar(
@@ -87,7 +86,20 @@ void navigateToPage(BuildContext context, Widget page) {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    navigateToPage(context,LoginPage());
+                    CustomPopup.show(context: context,
+                     title: "Confirmação de Logout",
+                      content: "Deseja sair da sua conta? \nVocê será redirecionado à página de login. ",
+                      actions: [
+                        TextButton(
+                          child: Text("Não"),
+                          onPressed: () => {},
+                      ),
+                      TextButton(
+                        child: Text("Sim"),
+                        onPressed:() => NavigationService().navigateTo(LoginPage()),
+                      ),
+                      ]
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
@@ -117,7 +129,7 @@ void navigateToPage(BuildContext context, Widget page) {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    navigateToPage(context, RegistrationPage());
+                    
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,

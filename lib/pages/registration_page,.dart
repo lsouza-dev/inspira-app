@@ -94,9 +94,16 @@ class _RegistrationPageState extends State<RegistrationPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Cadastro'),
+        backgroundColor: Colors.blue,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: Container(
+        decoration: BoxDecoration(
+          border: Border(
+            top: BorderSide(color: Colors.blue, width: 20.0), // Aumenta a borda inferior
+            bottom: BorderSide(color: Colors.blue, width: 30.0), // Aumenta a borda inferior
+          )
+        ),
+        padding: EdgeInsets.only(top: 40,left: 16,right: 16),
         child: Form(
           key: _formKey,
           child: ListView(

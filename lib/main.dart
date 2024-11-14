@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:inspiraapp/pages/login_page.dart';
 import 'package:inspiraapp/pages/menu_page.dart';
+import 'package:inspiraapp/service/navigation_service.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -8,8 +10,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Menu',
+      navigatorKey:  NavigationService().navigatorKey,
       home:
-          MenuPage(), // Certifica de que LoginPage está definido corretamente
+          LoginPage(), // Certifica de que LoginPage está definido corretamente
     );
   }
 }
