@@ -1,166 +1,124 @@
 import 'package:flutter/material.dart';
-import 'package:inspiraapp/pages/login_page.dart';
-import 'package:inspiraapp/pages/registration_page,.dart';
-import 'package:inspiraapp/service/custom_popup.dart';
+import 'package:inspiraapp/pages/profile_page.dart';
 import 'package:inspiraapp/service/navigation_service.dart';
 
 class MenuPage extends StatelessWidget {
+  const MenuPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('Registro de Presença'),
+        backgroundColor: Colors.blue,
       ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Container(
-            padding: const EdgeInsets.only(top: 50.0), // Adiciona padding no topo
-            child: GridView.count(
-              crossAxisCount: 2,
-              mainAxisSpacing: 16,
-              crossAxisSpacing: 16,
-              childAspectRatio: .7, // ajuste da proporção altura/largura
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    // Lógica para iniciar
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero, // bordas retas
-                    ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  // Lógica para iniciar
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.play_arrow,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(height: 8), // Espaço entre o ícone e o texto
-                      Text(
-                        'Iniciar',
-                        style: TextStyle(
-                          color: Colors.white, // cor da fonte
-                          fontSize: 24, // tamanho da fonte
-                          fontWeight: FontWeight.bold, // fonte mais espessa
-                        ),
-                      ),
-                    ],
-                  ),
+                  minimumSize: const Size(300, 200),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Lógica para finalizar
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.play_arrow,
+                      color: Colors.white,
+                      size: 60,
                     ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.stop,
+                    SizedBox(height: 8),
+                    Text(
+                      'Iniciar',
+                      style: TextStyle(
                         color: Colors.white,
-                        size: 30,
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
                       ),
-                      SizedBox(height: 8), // Espaço entre o ícone e o texto
-                      Text(
-                        'Finalizar',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    CustomPopup.show(context: context,
-                     title: "Confirmação de Logout",
-                      content: "Deseja sair da sua conta? \nVocê será redirecionado à página de login. ",
-                      actions: [
-                        TextButton(
-                          child: Text("Não"),
-                          onPressed: () => {},
-                      ),
-                      TextButton(
-                        child: Text("Sim"),
-                        onPressed:() => NavigationService().navigateTo(LoginPage()),
-                      ),
-                      ]
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
                     ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.exit_to_app,
-                        color: Colors.white,
-                        size: 30,
-                      ),
-                      SizedBox(height: 8), // Espaço entre o ícone e o texto
-                      Text(
-                        'Sair',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
+                  ],
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.zero,
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  // Lógica para finalizar
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                  ),
+                  minimumSize: const Size(300, 200),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.stop,
+                      color: Colors.white,
+                      size: 60,
                     ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.edit,
+                    SizedBox(height: 8),
+                    Text(
+                      'Finalizar',
+                      style: TextStyle(
                         color: Colors.white,
-                        size: 30,
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
                       ),
-                      SizedBox(height: 8), // Espaço entre o ícone e o texto
-                      Text(
-                        'Editar',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  NavigationService().navigateTo(ProfilePage());
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                  ),
+                  minimumSize: const Size(300, 200),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.person,
+                      color: Colors.white,
+                      size: 60,
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      'Perfil',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 50,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
+      ),
+      bottomNavigationBar: Container(
+        height: 20, // Altura da borda inferior
+        color: Colors.blue, // Cor da borda inferior
       ),
     );
   }

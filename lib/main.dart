@@ -4,7 +4,7 @@ import 'package:inspiraapp/pages/menu_page.dart';
 import 'package:inspiraapp/service/navigation_service.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

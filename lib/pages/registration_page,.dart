@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:inspiraapp/classes/usuarios.dart';
 
 class RegistrationPage extends StatefulWidget {
+  const RegistrationPage({super.key});
+
   @override
   _RegistrationPageState createState() => _RegistrationPageState();
 }
@@ -93,17 +95,17 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastro'),
+        title: const Text('Cadastro'),
         backgroundColor: Colors.blue,
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           border: Border(
             top: BorderSide(color: Colors.blue, width: 20.0), // Aumenta a borda inferior
             bottom: BorderSide(color: Colors.blue, width: 30.0), // Aumenta a borda inferior
           )
         ),
-        padding: EdgeInsets.only(top: 40,left: 16,right: 16),
+        padding: const EdgeInsets.only(top: 40,left: 16,right: 16),
         child: Form(
           key: _formKey,
           child: ListView(
@@ -139,7 +141,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
               ),
 
-              SizedBox(height: 10), // Espaçamento
+              const SizedBox(height: 10), // Espaçamento
 
 // Campo obrigatório: CPF
               Visibility(
@@ -166,7 +168,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
               ),
 
-              SizedBox(height: 10), // Espaçamento
+              const SizedBox(height: 10), // Espaçamento
 
 // Campo opcional: CNPJ
               Visibility(
@@ -214,7 +216,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
               ),
 
-              SizedBox(height: 10), // Espaçamento
+              const SizedBox(height: 10), // Espaçamento
 
               Visibility(
                 visible:
@@ -241,10 +243,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           return 'Digite uma idade válida';
                         }
                       }
+                      return null;
                     }),
               ),
 
-              SizedBox(height: 10), // Espaçamento
+              const SizedBox(height: 10), // Espaçamento
 
 // Campo obrigatório: Email
               Visibility(
@@ -267,7 +270,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
               ),
 
-              SizedBox(height: 10), // Espaçamento
+              const SizedBox(height: 10), // Espaçamento
 
 // Campo obrigatório: Celular
               Visibility(
@@ -294,6 +297,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         return 'Insira o DDD e os dígitos restantes do seu número.';
                       }
                     }
+                    return null;
                   },
                 ),
               ),
@@ -313,7 +317,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
               ),
 
-              SizedBox(height: 10), // Espaçamento
+              const SizedBox(height: 10), // Espaçamento
 
 // Campo opcional: Área de Atuação
               Visibility(
@@ -330,7 +334,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
               ),
 
-              SizedBox(height: 10), // Espaçamento
+              const SizedBox(height: 10), // Espaçamento
 
 // Campo opcional: Responsável
               Visibility(
@@ -362,28 +366,28 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 ),
               ),
 
-              SizedBox(height: 20), // Espaçamento maior antes do botão
+              const SizedBox(height: 20), // Espaçamento maior antes do botão
 
               Visibility(
                 visible: true, // Controla a visibilidade
                 child: ElevatedButton(
                   style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all<Size>(
-                        Size(200, 50)), // Aumenta o tamanho do botão
+                    minimumSize: WidgetStateProperty.all<Size>(
+                        const Size(200, 50)), // Aumenta o tamanho do botão
                     backgroundColor:
-                        MaterialStateProperty.all<Color>(Colors.blue),
+                        WidgetStateProperty.all<Color>(Colors.blue),
                     shadowColor:
-                        MaterialStateProperty.all<Color>(Colors.blue[900]!),
-                    elevation: MaterialStateProperty.all<double>(10),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        WidgetStateProperty.all<Color>(Colors.blue[900]!),
+                    elevation: WidgetStateProperty.all<double>(10),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(
                             12), // Arredondamento das bordas
-                        side: BorderSide(color: Colors.blue), // Borda do botão
+                        side: const BorderSide(color: Colors.blue), // Borda do botão
                       ),
                     ),
-                    textStyle: MaterialStateProperty.all<TextStyle>(
-                      TextStyle(
+                    textStyle: WidgetStateProperty.all<TextStyle>(
+                      const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -410,12 +414,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
-                          title: Text('Mensagem'),
+                          title: const Text('Mensagem'),
                           content: Text(
                               'Usuário Cadastrado!\n\nLogin: ${usuario.getEmail}'),
                           actions: <Widget>[
                             TextButton(
-                              child: Text('Fechar'),
+                              child: const Text('Fechar'),
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
@@ -425,7 +429,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                       },
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     'Cadastrar',
                     style: TextStyle(
                       color: Colors.white,
